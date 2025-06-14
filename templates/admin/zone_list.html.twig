@@ -22,69 +22,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Gondwana</td>
-                                <td>Nord</td>
-                                <td class="text-success">verte</td>
-                                <td>10000</td>
-                                <td>200</td>
-                                <td>60</td>
-                                <td>PS Nord</td>
-                            </tr>
-                            <tr class="table-warning">
-                                <td>Gondwana</td>
-                                <td>Sud</td>
-                                <td>orange</td>
-                                <td>5000</td>
-                                <td>100</td>
-                                <td>400</td>
-                                <td>PS Sud</td>
-                            </tr>
-                            <tr class="table-warning">
-                                <td>Noveria</td>
-                                <td>Capitale</td>
-                                <td>orange</td>
-                                <td>20000</td>
-                                <td>500</td>
-                                <td>1200</td>
-                                <td>PS Capitale</td>
-                            </tr>
-                            <tr class="table-danger">
-                                <td>Noveria</td>
-                                <td>Rives</td>
-                                <td>rouge</td>
-                                <td>8000</td>
-                                <td>200</td>
-                                <td>1600</td>
-                                <td>PS Rives</td>
-                            </tr>
-                            <tr>
-                                <td>Sylvania</td>
-                                <td>Foret</td>
-                                <td class="text-success">verte</td>
-                                <td>15000</td>
-                                <td>200</td>
-                                <td>100</td>
-                                <td>PS Foret</td>
-                            </tr>
-                            <tr class="table-danger">
-                                <td>Sylvania</td>
-                                <td>Montagne</td>
-                                <td>rouge</td>
-                                <td>10000</td>
-                                <td>500</td>
-                                <td>2000</td>
-                                <td>PS Montagne</td>
-                            </tr>
-                            <tr>
-                                <td>Sylvania</td>
-                                <td>Lac</td>
-                                <td class="text-success">verte</td>
-                                <td>12000</td>
-                                <td>200</td>
-                                <td>500</td>
-                                <td>PS Lac</td>
-                            </tr>
+
+                            {% for zone in zones %}
+                                <tr class="{% if zone.status == 'rouge' %}table-danger{% elseif zone.status == 'orange' %}table-warning{% endif %}">
+                                    <td>{{ zone.country.name }}</td>
+                                    <td>{{ zone.name }}</td>
+                                    <td>{{ zone.status }}</td>
+                                    <td>{{ zone.population }}</td>
+                                    <td>{{ zone.symptomatic }}</td>
+                                    <td>{{ zone.positive }}</td>
+                                    <td>
+                                        {% for point in zone.points %}
+                                            {{ point.name }}{% if not loop.last %}, {% endif %}
+                                        {% else %} - {% endfor %}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr><td colspan="7">Aucune zone</td></tr>
+                            {% endfor %}
+
                         </tbody>
                     </table>
                 </div>

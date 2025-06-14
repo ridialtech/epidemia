@@ -16,9 +16,13 @@
                     <div class="form-group">
                         <label for="zonePays">Pays</label>
                         <select class="form-control" id="zonePays">
-                            <option>Gondwana</option>
-                            <option>Noveria</option>
-                            <option>Sylvania</option>
+
+                            {% for country in countries %}
+                                <option value="{{ country.id }}">{{ country.name }}</option>
+                            {% else %}
+                                <option disabled>Aucun pays</option>
+                            {% endfor %}
+
                         </select>
                     </div>
                     <div class="form-row">
@@ -42,10 +46,6 @@
                             <option>orange</option>
                             <option>rouge</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="zonePoint">Point de surveillance</label>
-                        <input type="text" class="form-control" id="zonePoint" placeholder="Nom du point">
                     </div>
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </form>
