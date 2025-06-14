@@ -3,15 +3,67 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Country;
+use App\Entity\Zone;
+use App\Entity\SurveillancePoint;
 use Symfony\Component\Routing\Annotation\Route;
 
-use App\Repository\CountryRepository;
-use App\Repository\ZoneRepository;
-use App\Repository\SurveillancePointRepository;
+    #[Route('/pays/nouveau', name: 'country_new', methods: ['GET','POST'])]
+    public function newCountry(Request $request, EntityManagerInterface $em): Response
+        if ($request->isMethod('POST')) {
+            $name = trim($request->request->get('name'));
+            if ($name !== '') {
+                $country = new Country();
+                $country->setName($name);
+                $em->persist($country);
+                $em->flush();
+                return $this->redirectToRoute('country_list');
+            }
+        }
+
+    #[Route('/zone/nouvelle', name: 'zone_new', methods: ['GET','POST'])]
+    public function newZone(Request $request, EntityManagerInterface $em, CountryRepository $countries): Response
+        if ($request->isMethod('POST')) {
+            $name = trim($request->request->get('name'));
+            $countryId = $request->request->get('country');
+            if ($name !== '' && $countryId) {
+                $country = $countries->find($countryId);
+                if ($country) {
+                    $zone = new Zone();
+                    $zone->setName($name);
+                    $zone->setCountry($country);
+                    $zone->setPopulation((int)$request->request->get('population', 0));
+                    $zone->setSymptomatic((int)$request->request->get('symptomatic', 0));
+                    $zone->setPositive((int)$request->request->get('positive', 0));
+                    $zone->setStatus($request->request->get('status'));
+                    $em->persist($zone);
+                    $em->flush();
+                    return $this->redirectToRoute('zone_list');
+                }
+            }
+        }
 
 
-class DashboardController extends AbstractController
-{
+    #[Route('/point/nouveau', name: 'point_new', methods: ['GET','POST'])]
+    public function newPoint(Request $request, EntityManagerInterface $em, ZoneRepository $zones): Response
+        if ($request->isMethod('POST')) {
+            $name = trim($request->request->get('name'));
+            $zoneId = $request->request->get('zone');
+            if ($name !== '' && $zoneId) {
+                $zone = $zones->find($zoneId);
+                if ($zone) {
+                    $point = new SurveillancePoint();
+                    $point->setName($name);
+                    $point->setZone($zone);
+                    $em->persist($point);
+                    $em->flush();
+                    return $this->redirectToRoute('point_list');
+                }
+            }
+        }
+
     #[Route('/', name: 'dashboard')]
     public function index(): Response
     {

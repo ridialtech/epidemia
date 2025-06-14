@@ -8,18 +8,18 @@
                 <h6 class="m-0 font-weight-bold text-primary">Ajouter une zone</h6>
             </div>
             <div class="card-body">
-                <form>
+                <form method="post" action="{{ path('zone_new') }}">
                     <div class="form-group">
                         <label for="zoneNom">Nom de la zone</label>
-                        <input type="text" class="form-control" id="zoneNom" placeholder="Entrer le nom">
+                        <input type="text" class="form-control" id="zoneNom" name="name" placeholder="Entrer le nom">
                     </div>
                     <div class="form-group">
                         <label for="zonePays">Pays</label>
-                        <select class="form-control" id="zonePays">
-
-                            {% for country in countries %}
-                                <option value="{{ country.id }}">{{ country.name }}</option>
-                            {% else %}
+                        <select class="form-control" id="zonePays" name="country">
+                            <input type="number" class="form-control" id="zoneHabitants" name="population">
+                            <input type="number" class="form-control" id="zoneSympto" name="symptomatic">
+                            <input type="number" class="form-control" id="zonePositifs" name="positive">
+                        <select class="form-control" id="zoneStatut" name="status">
                                 <option disabled>Aucun pays</option>
                             {% endfor %}
 
