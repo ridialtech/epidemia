@@ -1,0 +1,68 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Zones critiques{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-danger">Zones critiques</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Pays</th>
+                                <th>Zone</th>
+                                <th>Statut</th>
+                                <th>Habitants</th>
+                                <th>Symptomatiques</th>
+                                <th>Confirmés</th>
+                                <th>Point de surveillance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-warning">
+                                <td>Gondwana</td>
+                                <td>Sud</td>
+                                <td>orange</td>
+                                <td>5000</td>
+                                <td>100</td>
+                                <td>400</td>
+                                <td>PS Sud</td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>Noveria</td>
+                                <td>Capitale</td>
+                                <td>orange</td>
+                                <td>20000</td>
+                                <td>500</td>
+                                <td>1200</td>
+                                <td>PS Capitale</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td>Noveria</td>
+                                <td>Rives</td>
+                                <td>rouge</td>
+                                <td>8000</td>
+                                <td>200</td>
+                                <td>1600</td>
+                                <td>PS Rives</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td>Sylvania</td>
+                                <td>Montagne</td>
+                                <td>rouge</td>
+                                <td>10000</td>
+                                <td>500</td>
+                                <td>2000</td>
+                                <td>PS Montagne</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
