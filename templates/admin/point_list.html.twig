@@ -1,0 +1,23 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Liste des points{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Liste des points de surveillance</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead><tr><th>Nom</th><th>Zone</th></tr></thead>
+                    <tbody>
+                        <tr><td>PS Nord</td><td>Nord</td></tr>
+                        <tr><td>PS Sud</td><td>Sud</td></tr>
+                        <tr><td>PS Capitale</td><td>Capitale</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -19,6 +19,12 @@ class DashboardController extends AbstractController
         return $this->render('admin/country_new.html.twig');
     }
 
+    #[Route('/pays', name: 'country_list')]
+    public function countryList(): Response
+    {
+        return $this->render('admin/country_list.html.twig');
+    }
+
     #[Route('/zone/nouvelle', name: 'zone_new')]
     public function newZone(): Response
     {
@@ -29,6 +35,12 @@ class DashboardController extends AbstractController
     public function newPoint(): Response
     {
         return $this->render('admin/point_new.html.twig');
+    }
+
+    #[Route('/points', name: 'point_list')]
+    public function pointList(): Response
+    {
+        return $this->render('admin/point_list.html.twig');
     }
 
     #[Route('/zones', name: 'zone_list')]
