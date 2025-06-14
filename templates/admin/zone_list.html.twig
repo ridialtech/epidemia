@@ -1,0 +1,95 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Liste des zones{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Liste des zones</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Pays</th>
+                                <th>Zone</th>
+                                <th>Statut</th>
+                                <th>Habitants</th>
+                                <th>Symptomatiques</th>
+                                <th>Confirmés</th>
+                                <th>Point de surveillance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gondwana</td>
+                                <td>Nord</td>
+                                <td class="text-success">verte</td>
+                                <td>10000</td>
+                                <td>200</td>
+                                <td>60</td>
+                                <td>PS Nord</td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>Gondwana</td>
+                                <td>Sud</td>
+                                <td>orange</td>
+                                <td>5000</td>
+                                <td>100</td>
+                                <td>400</td>
+                                <td>PS Sud</td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>Noveria</td>
+                                <td>Capitale</td>
+                                <td>orange</td>
+                                <td>20000</td>
+                                <td>500</td>
+                                <td>1200</td>
+                                <td>PS Capitale</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td>Noveria</td>
+                                <td>Rives</td>
+                                <td>rouge</td>
+                                <td>8000</td>
+                                <td>200</td>
+                                <td>1600</td>
+                                <td>PS Rives</td>
+                            </tr>
+                            <tr>
+                                <td>Sylvania</td>
+                                <td>Foret</td>
+                                <td class="text-success">verte</td>
+                                <td>15000</td>
+                                <td>200</td>
+                                <td>100</td>
+                                <td>PS Foret</td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td>Sylvania</td>
+                                <td>Montagne</td>
+                                <td>rouge</td>
+                                <td>10000</td>
+                                <td>500</td>
+                                <td>2000</td>
+                                <td>PS Montagne</td>
+                            </tr>
+                            <tr>
+                                <td>Sylvania</td>
+                                <td>Lac</td>
+                                <td class="text-success">verte</td>
+                                <td>12000</td>
+                                <td>200</td>
+                                <td>500</td>
+                                <td>PS Lac</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
