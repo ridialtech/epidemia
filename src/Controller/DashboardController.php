@@ -4,9 +4,11 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Repository\CountryRepository;
 use App\Repository\ZoneRepository;
 use App\Repository\SurveillancePointRepository;
+
 
 class DashboardController extends AbstractController
 {
@@ -68,5 +70,6 @@ class DashboardController extends AbstractController
         return $this->render('admin/critical_zones.html.twig', [
             'zones' => $repo->findBy(['status' => ['orange', 'rouge']]),
         ]);
+
     }
 }

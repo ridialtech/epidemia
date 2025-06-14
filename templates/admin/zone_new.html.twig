@@ -16,11 +16,13 @@
                     <div class="form-group">
                         <label for="zonePays">Pays</label>
                         <select class="form-control" id="zonePays">
+
                             {% for country in countries %}
                                 <option value="{{ country.id }}">{{ country.name }}</option>
                             {% else %}
                                 <option disabled>Aucun pays</option>
                             {% endfor %}
+
                         </select>
                     </div>
                     <div class="form-row">
