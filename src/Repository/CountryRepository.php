@@ -24,4 +24,5 @@ class CountryRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
 }

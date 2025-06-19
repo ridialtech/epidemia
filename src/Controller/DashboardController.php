@@ -15,6 +15,7 @@ use App\Repository\SurveillancePointRepository;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
+
 class DashboardController extends AbstractController
 {
     #[Route('/', name: 'dashboard')]
@@ -94,6 +95,7 @@ class DashboardController extends AbstractController
                 }
             }
         }
+
 
         return $this->render('admin/point_new.html.twig', [
             'zones' => $zones->findAll(),
