@@ -30,7 +30,7 @@ security:
                 username_parameter: email
                 password_parameter: pass
                 default_target_path: dashboard
-                csrf_token_generator: null
+                enable_csrf: false
 
             logout:
                 path: logout
