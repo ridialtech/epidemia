@@ -4,7 +4,18 @@ security:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        users_in_memory: { memory: null }
+        users_in_memory:
+            memory:
+                users:
+                    admin@gmail.com:
+                        password: '$2b$12$/UzoPDE0Aoiz4HIUIPZsZu7KxVs3DCwpb.PQp9hTvCFmrM4LY4CBu'
+                        roles: ['ROLE_ADMIN']
+                    user@gmail.com:
+                        password: '$2b$12$/UzoPDE0Aoiz4HIUIPZsZu7KxVs3DCwpb.PQp9hTvCFmrM4LY4CBu'
+                        roles: ['ROLE_USER']
+                    agent@gmail.com:
+                        password: '$2b$12$/UzoPDE0Aoiz4HIUIPZsZu7KxVs3DCwpb.PQp9hTvCFmrM4LY4CBu'
+                        roles: ['ROLE_AGENT']
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -12,6 +23,17 @@ security:
         main:
             lazy: true
             provider: users_in_memory
+
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: email
+                password_parameter: pass
+                default_target_path: dashboard
+                csrf_token_generator: null
+
+            logout:
+                path: logout
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -22,8 +44,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: ROLE_USER }
 
 when@test:
     security:
