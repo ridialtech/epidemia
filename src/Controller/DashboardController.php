@@ -5,6 +5,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class DashboardController extends AbstractController
 {
     #[Route('/', name: 'dashboard')]
@@ -41,5 +42,6 @@ class DashboardController extends AbstractController
     public function criticalZones(): Response
     {
         return $this->render('admin/critical_zones.html.twig');
+
     }
 }

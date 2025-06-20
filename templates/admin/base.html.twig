@@ -50,13 +50,42 @@
                     <i class="fas fa-fw fa-list"></i>
                     <span>Liste Zones</span>
                 </a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry" aria-expanded="true" aria-controls="collapseCountry">
+                    <i class="fas fa-fw fa-flag"></i>
+                    <span>Pays</span>
+                </a>
+                <div id="collapseCountry" class="collapse" aria-labelledby="headingCountry" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ path('country_new') }}">Ajout pays</a>
+                        <a class="collapse-item" href="{{ path('country_list') }}">Liste pays</a>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('critical_zones') }}">
-                    <i class="fas fa-fw fa-exclamation-triangle"></i>
-                    <span>Zones critiques</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZone" aria-expanded="true" aria-controls="collapseZone">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Zones</span>
                 </a>
+                <div id="collapseZone" class="collapse" aria-labelledby="headingZone" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ path('zone_new') }}">Ajout zone</a>
+                        <a class="collapse-item" href="{{ path('zone_list') }}">Liste zones</a>
+                    </div>
+                </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePoint" aria-expanded="true" aria-controls="collapsePoint">
+                    <i class="fas fa-fw fa-map-marker-alt"></i>
+                    <span>Points</span>
+                </a>
+                <div id="collapsePoint" class="collapse" aria-labelledby="headingPoint" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ path('point_new') }}">Ajout point</a>
+                        <a class="collapse-item" href="{{ path('point_list') }}">Liste points</a>
+                    </div>
+                </div>
+
+
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
