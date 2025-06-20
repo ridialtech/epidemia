@@ -8,47 +8,49 @@
                 <h6 class="m-0 font-weight-bold text-primary">Ajouter une zone</h6>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ path('zone_new') }}">
+                <form>
                     <div class="form-group">
                         <label for="zoneNom">Nom de la zone</label>
-                        <input type="text" class="form-control" id="zoneNom" name="name" placeholder="Entrer le nom">
+                        <input type="text" class="form-control" id="zoneNom" placeholder="Entrer le nom">
                     </div>
                     <div class="form-group">
                         <label for="zonePays">Pays</label>
-                        <select class="form-control" id="zonePays" name="country">
-
-                            {% for country in countries %}
-                                <option value="{{ country.id }}">{{ country.name }}</option>
-                            {% else %}
-                                <option disabled>Aucun pays</option>
-                            {% endfor %}
+                        <select class="form-control" id="zonePays">
+                            <option>Gondwana</option>
+                            <option>Noveria</option>
+                            <option>Sylvania</option>
 
                         </select>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="zoneHabitants">Habitants</label>
-                            <input type="number" class="form-control" id="zoneHabitants" name="population">
+                            <input type="number" class="form-control" id="zoneHabitants">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="zoneSympto">Symptomatiques</label>
-                            <input type="number" class="form-control" id="zoneSympto" name="symptomatic">
+                            <input type="number" class="form-control" id="zoneSympto">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="zonePositifs">Cas confirmés</label>
-                            <input type="number" class="form-control" id="zonePositifs" name="positive">
+                            <input type="number" class="form-control" id="zonePositifs">
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="zoneStatut">Statut</label>
-                        <select class="form-control" id="zoneStatut" name="status">
+                        <select class="form-control" id="zoneStatut">
 
                             <option>verte</option>
                             <option>orange</option>
                             <option>rouge</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="zonePoint">Point de surveillance</label>
+                        <input type="text" class="form-control" id="zonePoint" placeholder="Nom du point">
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </form>
             </div>
