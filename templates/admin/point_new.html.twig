@@ -8,22 +8,38 @@
                 <h6 class="m-0 font-weight-bold text-primary">Ajouter un point de surveillance</h6>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ path('point_new') }}">
+                <form>
                     <div class="form-group">
                         <label for="psNom">Nom du point</label>
-                        <input type="text" class="form-control" id="psNom" name="name" placeholder="Entrer le nom">
+                        <input type="text" class="form-control" id="psNom" placeholder="Entrer le nom">
                     </div>
                     <div class="form-group">
                         <label for="psZone">Zone</label>
-                        <select class="form-control" id="psZone" name="zone">
-   
-                            {% for zone in zones %}
-                                <option value="{{ zone.id }}">{{ zone.name }}</option>
-                            {% else %}
-                                <option disabled>Aucune zone</option>
-                            {% endfor %}
+                        <select class="form-control" id="psZone">
+                            <option>Nord</option>
+                            <option>Sud</option>
+                            <option>Capitale</option>
+                            <option>Rives</option>
+                            <option>Foret</option>
+                            <option>Montagne</option>
+                            <option>Lac</option>
 
                         </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="psPopulation">Habitants</label>
+                            <input type="number" class="form-control" id="psPopulation">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="psSymptomatic">Symptomatiques</label>
+                            <input type="number" class="form-control" id="psSymptomatic">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="psPositive">Cas confirmés</label>
+                            <input type="number" class="form-control" id="psPositive">
+
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </form>

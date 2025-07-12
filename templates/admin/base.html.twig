@@ -28,6 +28,28 @@
             <hr class="sidebar-divider">
             <div class="sidebar-heading">Interface</div>
             <li class="nav-item">
+                <a class="nav-link" href="{{ path('country_new') }}">
+                    <i class="fas fa-fw fa-flag"></i>
+                    <span>Ajout Pays</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('zone_new') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Ajout Zone</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('point_new') }}">
+                    <i class="fas fa-fw fa-map-marker-alt"></i>
+                    <span>Ajout Point</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('zone_list') }}">
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Liste Zones</span>
+                </a>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry" aria-expanded="true" aria-controls="collapseCountry">
                     <i class="fas fa-fw fa-flag"></i>
                     <span>Pays</span>
@@ -63,19 +85,6 @@
                     </div>
                 </div>
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('critical_zones') }}">
-                    <i class="fas fa-fw fa-exclamation-triangle"></i>
-                    <span>Zones critiques</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('download_devoir') }}">
-                    <i class="fas fa-fw fa-download"></i>
-                    <span>Télécharger le devoir</span>
-                </a>
-            </li>
 
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
